@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 import Map from './components/Map'
 import TaskList from './components/TaskList'
 import { Task } from './types'
-import { IconButton } from '@mui/material'
 
 const theme = createTheme({
   palette: {
