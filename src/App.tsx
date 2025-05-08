@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 import Map from './components/Map'
 import TaskList from './components/TaskList'
 import { Task } from './types'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
 import { IconButton } from '@mui/material'
 
 const theme = createTheme({
@@ -81,13 +80,6 @@ const TaskContainer = styled.div`
     height: 50vh;
     max-width: none;
   }
-`
-
-const StyledIconButton = styled(IconButton)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
 `
 
 const tasks: Task[] = [
