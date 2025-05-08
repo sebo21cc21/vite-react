@@ -64,8 +64,8 @@ const MapContainer = styled.div`
   position: relative;
   
   @media (max-width: 768px) {
-    height: 50vh;
-    min-height: 300px;
+    height: 30vh;
+    min-height: 200px;
   }
 `
 
