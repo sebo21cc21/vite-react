@@ -57,7 +57,7 @@ const MainContent = styled.main`
 `
 
 const MapContainer = styled.div`
-  flex: 2;
+  flex: 1.5;
   height: 100%;
   position: relative;
   
@@ -68,7 +68,7 @@ const MapContainer = styled.div`
 `
 
 const TaskContainer = styled.div`
-  flex: 1;
+  flex: 2.5;
   overflow-y: auto;
   padding: 1rem;
   background-color: #1e1e1e;
@@ -76,7 +76,7 @@ const TaskContainer = styled.div`
   max-width: 400px;
   
   @media (max-width: 768px) {
-    height: 50vh;
+    height: 80vh;
     max-width: none;
   }
 `
