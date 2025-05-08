@@ -64,8 +64,8 @@ const MapContainer = styled.div`
   position: relative;
   
   @media (max-width: 768px) {
-    height: 30vh;
-    min-height: 200px;
+    height: 20vh;
+    min-height: 150px;
   }
 `
 
@@ -227,18 +227,6 @@ function App() {
               onTaskComplete={handleTaskComplete}
               mapRef={mapRef}
             />
-            <StyledIconButton
-              onClick={() => {
-                if (mapRef.current && userLocation) {
-                  mapRef.current.panTo(userLocation);
-                  mapRef.current.setZoom(15);
-                }
-              }}
-              size="large"
-              aria-label="center on user location"
-            >
-              <LocationOnIcon />
-            </StyledIconButton>
           </MapContainer>
           <TaskContainer>
             <TaskList 
