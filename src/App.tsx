@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import styled from '@emotion/styled'
@@ -180,7 +180,7 @@ const tasks: Task[] = [
 function App() {
   const [currentTasks, setCurrentTasks] = useState<Task[]>(tasks)
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const mapRef = useRef<google.maps.Map | null>(null)
 
   const handleLocationUpdate = (location: google.maps.LatLngLiteral) => {
     setUserLocation(location)
@@ -203,11 +203,11 @@ function App() {
           handleLocationUpdate(location);
         },
         (error) => {
-          setError('Błąd geolokalizacji: ' + error.message);
+          console.error('Błąd geolokalizacji: ' + error.message);
         }
       );
     } else {
-      setError('Twoja przeglądarka nie wspiera geolokalizacji');
+      console.error('Twoja przeglądarka nie wspiera geolokalizacji');
     }
   }, [handleLocationUpdate]);
 
@@ -225,12 +225,13 @@ function App() {
               userLocation={userLocation}
               onLocationUpdate={handleLocationUpdate}
               onTaskComplete={handleTaskComplete}
+              mapRef={mapRef}
             />
             <StyledIconButton
               onClick={() => {
-                if (map && userLocation) {
-                  map.panTo(userLocation);
-                  map.setZoom(15);
+                if (mapRef.current && userLocation) {
+                  mapRef.current.panTo(userLocation);
+                  mapRef.current.setZoom(15);
                 }
               }}
               size="large"

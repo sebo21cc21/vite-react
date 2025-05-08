@@ -25,6 +25,7 @@ export interface MapProps {
   userLocation: google.maps.LatLngLiteral | null;
   onLocationUpdate: (location: google.maps.LatLngLiteral) => void;
   onTaskComplete: (taskId: number) => void;
+  mapRef: React.MutableRefObject<google.maps.Map | null>;
 }
 
 export interface TaskListProps {
