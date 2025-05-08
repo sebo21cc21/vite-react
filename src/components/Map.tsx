@@ -1,6 +1,6 @@
 import { useJsApiLoader, GoogleMap, Marker, Circle } from '@react-google-maps/api';
 import { Box, CircularProgress, Typography, IconButton, styled } from '@mui/material';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { MapProps } from '../types';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import React from 'react';
@@ -17,7 +17,7 @@ const defaultCenter = {
   lng: 21.0122
 };
 
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
+const StyledIconButton = styled(IconButton)(() => ({
   position: 'absolute',
   bottom: '20px',
   left: '20px',
@@ -53,7 +53,7 @@ const completedTaskMarkerStyle = {
   fillColor: '#4CAF50',
 };
 
-const Map = ({ tasks, userLocation, onLocationUpdate, onTaskComplete }: MapProps) => {
+const Map = ({ tasks, userLocation, onLocationUpdate }: MapProps) => {
   const [error, setError] = useState<string | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [hasCentered, setHasCentered] = useState(false);
